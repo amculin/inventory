@@ -5,7 +5,6 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'language' => 'en-EN',
-    'sourceLanguage' => 'id-ID',
     'id' => 'Inventory System',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -63,6 +62,7 @@ $config = [
                     'fileMap' => [
                         'app' => 'app.php',
                         'app.form' => 'form.php',
+                        'app.login' => 'login.php',
                         'app/error' => 'error.php',
                     ],
                 ],
