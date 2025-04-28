@@ -75,20 +75,20 @@ class User extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app.form', 'ID'),
-            'unit_id' => Yii::t('app.form', 'Unit'),
-            'role_id' => Yii::t('app.form', 'Peran'),
-            'username' => Yii::t('app.form', 'Username'),
-            'email' => Yii::t('app.form', 'Email'),
-            'password' => Yii::t('app.form', 'Password'),
-            'name' => Yii::t('app.form', 'Nama'),
-            'is_blocked' => Yii::t('app.form', 'Is Blocked'),
-            'is_deleted' => Yii::t('app.form', 'Is Deleted'),
-            'auth_key' => Yii::t('app.form', 'Auth Key'),
-            'created_at' => Yii::t('app.form', 'Created At'),
-            'updated_at' => Yii::t('app.form', 'Updated At'),
-            'created_by' => Yii::t('app.form', 'Created By'),
-            'updated_by' => Yii::t('app.form', 'Updated By'),
+            'id' => Yii::t('app.form', 'id'),
+            'unit_id' => Yii::t('app.form', 'unit'),
+            'role_id' => Yii::t('app.form', 'role'),
+            'username' => Yii::t('app.form', 'username'),
+            'email' => Yii::t('app.form', 'email'),
+            'password' => Yii::t('app.form', 'password'),
+            'name' => Yii::t('app.form', 'name'),
+            'is_blocked' => Yii::t('app.form', 'is.blocked'),
+            'is_deleted' => Yii::t('app.form', 'is.deleted'),
+            'auth_key' => Yii::t('app.form', 'auth.key'),
+            'created_at' => Yii::t('app.form', 'created.at'),
+            'updated_at' => Yii::t('app.form', 'udated.at'),
+            'created_by' => Yii::t('app.form', 'created.by'),
+            'updated_by' => Yii::t('app.form', 'updated.by'),
         ];
     }
 

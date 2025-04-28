@@ -17,4 +17,6 @@ return [
     'product.categories' => 'Kategori Produk',
     'products' => 'Produk',
     'user.management' => 'Manajemen Pengguna',
+
+    'action' => 'Aksi'
 ];

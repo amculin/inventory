@@ -12,8 +12,13 @@ use yii\helpers\Html;
  */
 class FActionColumn extends ActionColumn
 {
-    public $header = 'Aksi';
-    public $template = '{update} {delete}';
+    public function init()
+    {
+        parent::init();
+
+        $this->header = Yii::t('app', 'action');
+        //$this->template = '{update} {delete}';
+    }
 
     /**
      * @inheritdoc
