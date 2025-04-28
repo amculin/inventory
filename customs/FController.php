@@ -125,6 +125,7 @@ class FController extends Controller
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         $data = [
+            'title' => $this->title,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ];

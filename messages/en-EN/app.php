@@ -17,4 +17,6 @@ return [
     'product.categories' => 'Product Categories',
     'products' => 'Products',
     'user.management' => 'User Management',
+
+    'action' => 'Action'
 ];
