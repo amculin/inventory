@@ -23,5 +23,6 @@ return [
     'email' => 'Email',
     'username' => 'Username',
     'password' => 'Kata Sandi',
-    'user' => 'Pengguna'
+    'user' => 'Pengguna',
+    'sure?' => 'Apakah Anda Yakin?',
 ];

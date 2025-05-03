@@ -32,5 +32,6 @@ return [
     'email' => 'Email',
     'username' => 'Username',
     'password' => 'Password',
-    'user' => 'User'
+    'user' => 'User',
+    'sure?' => 'Are You Sure?',
 ];
