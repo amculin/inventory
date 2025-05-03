@@ -91,7 +91,7 @@ $fullTitle = Yii::t('app', $title . '.management')
                                             'class' => $model['is_blocked'] == 1 ? 'bi bi-unlock' : 'bi bi-lock',
                                             'data-bs-toggle' => 'tooltip',
                                             'data-bs-placement' => 'bottom',
-                                            'title' => Yii::t('app.form', $model['is_blocked'] == 1 ? 'unlock' : 'lock')
+                                            'title' => Yii::t('app', $model['is_blocked'] == 1 ? 'unlock' : 'lock')
                                         ]);
                         
                                         return Html::a($icon, $url, ['class' => 'text-dark lock-user']);

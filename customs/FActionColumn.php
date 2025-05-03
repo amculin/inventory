@@ -12,12 +12,13 @@ use yii\helpers\Html;
  */
 class FActionColumn extends ActionColumn
 {
+    public $template = '{update} {delete}';
+
     public function init()
     {
         parent::init();
 
         $this->header = Yii::t('app', 'action');
-        //$this->template = '{update} {delete}';
     }
 
     /**
@@ -38,7 +39,7 @@ class FActionColumn extends ActionColumn
             $this->buttons[$name] = function ($url, $model, $key) use ($name, $iconName, $additionalOptions) {
                 switch ($name) {
                     case 'update':
-                        $title = Yii::t('yii', 'Edit');
+                        $title = Yii::t('app', 'edit');
                         $options = array_merge([
                             'title' => $title,
                             'aria-label' => $title,
@@ -49,7 +50,7 @@ class FActionColumn extends ActionColumn
                         ], $additionalOptions, $this->buttonOptions);
                         break;
                     case 'delete':
-                        $title = Yii::t('yii', 'Hapus');
+                        $title = Yii::t('app', 'delete');
                         $options = array_merge([
                             'title' => $title,
                             'aria-label' => $title,

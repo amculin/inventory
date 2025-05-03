@@ -18,5 +18,9 @@ return [
     'products' => 'Produk',
     'user.management' => 'Manajemen Pengguna',
 
-    'action' => 'Aksi'
+    'action' => 'Aksi',
+    'edit' => 'Edit',
+    'delete' => 'Hapus',
+    'lock' => 'Kunci',
+    'unlock' => 'Buka Kunci',
 ];
