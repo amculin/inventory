@@ -135,7 +135,6 @@ $fullTitle = Yii::t('app', $title . '.management')
     </div>
 </div>
 
-
 <div class="modal fade modal-blur users-form" id="modal-form" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -145,3 +144,43 @@ $fullTitle = Yii::t('app', $title . '.management')
 
 <?php
 FormModalAsset::register($this);
+
+$lockTitle = Yii::t('app', 'lock');
+$unlockTitle = Yii::t('app', 'unlock');
+$action = Yii::t('app.form', 'user');
+$confirmationText = Yii::t('app.form', 'sure?');
+$success = Yii::t('app.form', 'success');
+$failed = Yii::t('app.form', 'failed');
+
+$js = "
+$('#w1 a.lock-user').click(function(event) {
+    event.preventDefault();
+    
+    var url = $(this).attr('href');
+    var title = $(this).find('i').attr('data-bs-original-title');
+    var action = (title == 'Lock' || title == 'Kunci') ? '{$lockTitle}' : '{$unlockTitle}';
+    var csrfToken = $('meta[name=\"csrf-token\"]').attr('content');
+
+    Swal.fire({
+        title: action + ' {$action}?',
+        text: '{$confirmationText}',
+        icon: 'warning',
+        showCancelButton: true,
+        reverseButtons:true,
+        confirmButtonText: action + ' {$action}!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data: {_csrf : csrfToken},
+                success : function(data) {
+                    location.reload();
+                }
+            });
+        }
+    })
+});
+";
+
+$this->registerJs($js, $this::POS_END, 'user-lock-handler');

@@ -13,6 +13,7 @@ return [
     'success' => 'Sukses',
     '.created' => ' berhasil dibuat.',
     '.updated' => ' berhasil diperbaharui.',
+    '.deleted' => ' berhasil dihapus.',
 
     //User Management
     'create.user' => 'Tambah Pengguna',
@@ -23,5 +24,6 @@ return [
     'email' => 'Email',
     'username' => 'Username',
     'password' => 'Kata Sandi',
-    'user' => 'Pengguna'
+    'user' => 'Pengguna',
+    'sure?' => 'Apakah Anda Yakin?',
 ];

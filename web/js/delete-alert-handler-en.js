@@ -4,12 +4,12 @@ $('div.grid-view a.text-danger, a.delete-dialog').click(function(event) {
     let url = $(this).attr('href');
 
     Swal.fire({
-        title: 'Hapus Data',
-        text: 'Apakah anda yakin ingin menghapus data?',
+        title: 'Delete Data',
+        text: 'Are you sure you want to delete this data?',
         icon: 'warning',
         showCancelButton: true,
         reverseButtons:true,
-        confirmButtonText: 'Ya, Hapus Data!'
+        confirmButtonText: 'Yes, Delete Data!'
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\customs\FController;
+use app\enums\BlockedStatus;
 use app\enums\Role;
 use app\models\RoleSearch;
 use app\models\User;
@@ -87,5 +88,40 @@ class UsersController extends FController
                 return $this->redirect(['index']);
             }
         }
+    }
+
+    /**
+     * Lock/unlock an existing User model.
+     * If lock/unlock is successful, the system will return success message.
+     * @param int $id ID
+     * @return \yii\web\Response
+     * @throws UnprocessableEntityHttpException if the action cannot be executed
+     */
+    public function actionLock($id)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $model = $this->findModel($id);
+
+        if ($model->is_blocked == BlockedStatus::IS_BLOCKED->value) {
+            $model->is_blocked = BlockedStatus::IS_NOT_BLOCKED->value;
+        } else {
+            $model->is_blocked = BlockedStatus::IS_BLOCKED->value;
+        }
+
+        if (! $model->save()) {
+            throw new yii\web\UnprocessableEntityHttpException('Failed');
+        }
+
+        $flashMessage = Yii::t('app.form', $this->title);
+        $flashMessage .= ' <strong>' . $model->name . '</strong> ';
+        $flashMessage .= Yii::t('app.form', '.updated');
+
+        Yii::$app->session->setFlash('success', $flashMessage);
+
+        return [
+            'code' => 200,
+            'message' => 'success'
+        ];
     }
 }
