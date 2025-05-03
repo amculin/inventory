@@ -18,5 +18,9 @@ return [
     'products' => 'Products',
     'user.management' => 'User Management',
 
-    'action' => 'Action'
+    'action' => 'Action',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'lock' => 'Lock',
+    'unlock' => 'Unlock',
 ];

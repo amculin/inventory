@@ -63,6 +63,15 @@ $fullTitle = Yii::t('app', $title . '.management')
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>
+                   
+                <?php if (Yii::$app->session->hasFlash('success')) { ?>
+                    <div class="m-3 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><?= Yii::t('app.form', 'success'); ?>!</strong> <?= Yii::$app->session->getFlash('success'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="<?= Yii::t('app.form', 'close'); ?>"></button>
+                    </div>
+                <?php } ?>
+
                 <div class="table-responsive card-body p-0">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
@@ -91,7 +100,7 @@ $fullTitle = Yii::t('app', $title . '.management')
                                             'class' => $model['is_blocked'] == 1 ? 'bi bi-unlock' : 'bi bi-lock',
                                             'data-bs-toggle' => 'tooltip',
                                             'data-bs-placement' => 'bottom',
-                                            'title' => Yii::t('app.form', $model['is_blocked'] == 1 ? 'unlock' : 'lock')
+                                            'title' => Yii::t('app', $model['is_blocked'] == 1 ? 'unlock' : 'lock')
                                         ]);
                         
                                         return Html::a($icon, $url, ['class' => 'text-dark lock-user']);
