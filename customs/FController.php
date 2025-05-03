@@ -153,7 +153,7 @@ class FController extends Controller
             } else {
                 $data = [
                     'model' => $model,
-                    'title' => 'Tambah ' . $this->title
+                    'title' => $this->title
                 ];
 
                 $data = $this->createAdditionalDatas($data, 'create');
@@ -164,6 +164,12 @@ class FController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
+                $flashMessage = Yii::t('app.form', $this->title);
+                $flashMessage .= ' <strong>' . $model->name . '</strong> ';
+                $flashMessage .= Yii::t('app.form', '.created');
+
+                Yii::$app->session->setFlash('success', $flashMessage);
+
                 return $this->redirect(['index']);
             }
         } else {

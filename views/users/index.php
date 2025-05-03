@@ -63,6 +63,15 @@ $fullTitle = Yii::t('app', $title . '.management')
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>
+                   
+                <?php if (Yii::$app->session->hasFlash('success')) { ?>
+                    <div class="m-3 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><?= Yii::t('app.form', 'success'); ?>!</strong> <?= Yii::$app->session->getFlash('success'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="<?= Yii::t('app.form', 'close'); ?>"></button>
+                    </div>
+                <?php } ?>
+
                 <div class="table-responsive card-body p-0">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,

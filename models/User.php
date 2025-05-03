@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\master\Unit;
 
 /**
  * This is the model class for table "users".
@@ -28,13 +29,12 @@ use Yii;
  * @property MasterBrand[] $masterBrands
  * @property MasterCategory[] $masterCategories
  * @property MasterProduct[] $masterProducts
- * @property MasterUnit[] $masterUnits
+ * @property Unit[] $units
  * @property OutboundTransaction[] $outboundTransactions
  * @property Role $role
  * @property Role[] $roles
  * @property Stock[] $stocks
  * @property TransactionReport[] $transactionReports
- * @property MasterUnit $unit
  * @property User[] $users
  */
 class User extends \yii\db\ActiveRecord
@@ -55,7 +55,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['unit_id', 'role_id', 'username', 'email', 'password', 'name', 'auth_key', 'created_by'], 'required'],
+            [['unit_id', 'role_id', 'username', 'email', 'name'], 'required'],
+            [['password'], 'required', 'on' => $this::SCENARIO_NEW_USER],
             [['unit_id', 'role_id', 'is_blocked', 'is_deleted', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['username'], 'string', 'max' => 20],
@@ -63,7 +64,7 @@ class User extends \yii\db\ActiveRecord
             [['password'], 'string', 'max' => 64],
             [['username'], 'unique'],
             [['email'], 'unique'],
-            [['unit_id'], 'exist', 'skipOnError' => true, 'targetClass' => MasterUnit::class, 'targetAttribute' => ['unit_id' => 'id']],
+            [['unit_id'], 'exist', 'skipOnError' => true, 'targetClass' => Unit::class, 'targetAttribute' => ['unit_id' => 'id']],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
         ];
@@ -82,8 +83,8 @@ class User extends \yii\db\ActiveRecord
             'email' => Yii::t('app.form', 'email'),
             'password' => Yii::t('app.form', 'password'),
             'name' => Yii::t('app.form', 'name'),
-            'is_blocked' => Yii::t('app.form', 'is.blocked'),
-            'is_deleted' => Yii::t('app.form', 'is.deleted'),
+            'is_blocked' => Yii::t('app', 'is.blocked'),
+            'is_deleted' => Yii::t('app', 'is.deleted'),
             'auth_key' => Yii::t('app.form', 'auth.key'),
             'created_at' => Yii::t('app.form', 'created.at'),
             'updated_at' => Yii::t('app.form', 'udated.at'),
@@ -230,5 +231,23 @@ class User extends \yii\db\ActiveRecord
     public function getUsers()
     {
         return $this->hasMany(User::class, ['created_by' => 'id']);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+
+        if ($insert) {
+            $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
+            $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            $this->created_by = Yii::$app->user->identity->id;
+        }
+
+        return true;
     }
 }

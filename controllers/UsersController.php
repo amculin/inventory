@@ -19,7 +19,11 @@ class UsersController extends FController
 
         $this->allowedRoles[0] = Role::ADMIN->value;
         $this->additionalDataClass = [
-            'index' => ['roleList' => 'app\models\RoleSearch']
+            'index' => ['roleList' => 'app\models\RoleSearch'],
+            'create' => [
+                'roleList' => 'app\models\RoleSearch',
+                'unitList' => 'app\models\master\UnitSearch'
+                ]
         ];
         $this->modelClass = 'app\models\User';
         $this->searchModelClass = 'app\models\UserSearch';

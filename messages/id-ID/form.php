@@ -8,10 +8,19 @@ return [
     'close' => 'Tutup',
     'submit' => 'Kirim',
     'search.data..' => 'Cari Data..',
+    'choose.role' => 'Pilih Role',
+    'choose.unit' => 'Pilih Unit',
+    'success' => 'Sukses',
+    '.created' => ' berhasil dibuat.',
 
     //User Management
     'create.user' => 'Tambah Pengguna',
     'all.role' => 'Semua Role',
-    'name' => 'Nama',
-    'role' => 'Role'
+    'name' => 'Nama Lengkap',
+    'role' => 'Role',
+    'unit' => 'Unit',
+    'email' => 'Email',
+    'username' => 'Username',
+    'password' => 'Kata Sandi',
+    'user' => 'Pengguna'
 ];

@@ -16,12 +16,20 @@ return [
     'Cari data..' => 'Search data',
     'Semua Peran' => 'All Roles',
     'Peran' => 'Role',
-    'Pilih Peran' => 'Select Role',
-    'Pilih Unit' => 'Select Unit',
+    'choose.role' => 'Select Role',
+    'choose.unit' => 'Select Unit',
     'search.data..' => 'Search Data..',
+    'success' => 'Success',
+    '.created' => ' has been created!',
+
     //User Management
     'create.user' => 'Create User',
     'all.role' => 'All Roles',
-    'name' => 'Name',
-    'role' => 'Role'
+    'name' => 'Full Name',
+    'role' => 'Role',
+    'unit' => 'Unit',
+    'email' => 'Email',
+    'username' => 'Username',
+    'password' => 'Password',
+    'user' => 'User'
 ];
