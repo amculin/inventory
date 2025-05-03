@@ -246,6 +246,9 @@ class User extends \yii\db\ActiveRecord
             $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
             $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
             $this->created_by = Yii::$app->user->identity->id;
+        } else {
+            $this->updated_at = date('Y-m-d H:i:s');
+            $this->updated_by = Yii::$app->user->identity->id;
         }
 
         return true;

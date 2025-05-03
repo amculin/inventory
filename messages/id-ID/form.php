@@ -12,6 +12,7 @@ return [
     'choose.unit' => 'Pilih Unit',
     'success' => 'Sukses',
     '.created' => ' berhasil dibuat.',
+    '.updated' => ' berhasil diperbaharui.',
 
     //User Management
     'create.user' => 'Tambah Pengguna',

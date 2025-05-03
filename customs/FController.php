@@ -198,16 +198,22 @@ class FController extends Controller
             } else {
                 $data = [
                     'model' => $model,
-                    'title' => 'Edit ' . $this->title
+                    'title' => $this->title
                 ];
 
-                $data = $this->createAdditionalDatas($data, 'edit');
+                $data = $this->createAdditionalDatas($data, 'update');
 
                 return $this->renderAjax('_form', $data);
             }
         }
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            $flashMessage = Yii::t('app.form', $this->title);
+            $flashMessage .= ' <strong>' . $model->name . '</strong> ';
+            $flashMessage .= Yii::t('app.form', '.updated');
+
+            Yii::$app->session->setFlash('success', $flashMessage);
+
             return $this->redirect(['index']);
         }
     }

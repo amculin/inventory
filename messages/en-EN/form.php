@@ -21,6 +21,7 @@ return [
     'search.data..' => 'Search Data..',
     'success' => 'Success',
     '.created' => ' has been created!',
+    '.updated' => ' has been updated!',
 
     //User Management
     'create.user' => 'Create User',
