@@ -237,6 +237,12 @@ class FController extends Controller
             throw new yii\web\UnprocessableEntityHttpException('Gagal');
         }
 
+        $flashMessage = Yii::t('app.form', $this->title);
+        $flashMessage .= ' <strong>' . $model->name . '</strong> ';
+        $flashMessage .= Yii::t('app.form', '.deleted');
+
+        Yii::$app->session->setFlash('success', $flashMessage);
+
         return [
             'code' => 200,
             'message' => 'Sukses'

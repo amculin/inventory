@@ -22,6 +22,7 @@ return [
     'success' => 'Success',
     '.created' => ' has been created!',
     '.updated' => ' has been updated!',
+    '.deleted' => ' has been deleted!',
 
     //User Management
     'create.user' => 'Create User',

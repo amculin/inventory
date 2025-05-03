@@ -13,6 +13,7 @@ return [
     'success' => 'Sukses',
     '.created' => ' berhasil dibuat.',
     '.updated' => ' berhasil diperbaharui.',
+    '.deleted' => ' berhasil dihapus.',
 
     //User Management
     'create.user' => 'Tambah Pengguna',
