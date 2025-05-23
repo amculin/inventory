@@ -39,4 +39,7 @@ return [
     //Category Management
     'create.product.categories' => 'Create Category',
     'update.product.categories' => 'Update Category',
+
+    //Brand Management
+    'create.brands' => 'Create Brand',
 ];
