@@ -44,9 +44,7 @@ class FActionColumn extends ActionColumn
                             'title' => $title,
                             'aria-label' => $title,
                             'data-pjax' => '0',
-                            'class' => 'text-dark modal-trigger',
-                            'data-bs-toggle' => 'modal',
-                            'data-bs-target' => '#modal-form'
+                            'class' => 'text-dark',
                         ], $additionalOptions, $this->buttonOptions);
                         break;
                     case 'delete':

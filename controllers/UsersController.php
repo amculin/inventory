@@ -52,28 +52,6 @@ class UsersController extends FController
         $model = $this->findModel($id);
         $tempPassword = $model->password;
 
-        if (Yii::$app->request->isAjax) {
-            if ($model->load(Yii::$app->request->post())) {
-                if ($model->password == '') {
-                    $model->password = $tempPassword;
-                }
-
-                Yii::$app->response->format = Response::FORMAT_JSON;
-    
-                return ActiveForm::validate($model);
-            } else {
-                $data = [
-                    'model' => $model,
-                    'title' => $this->title
-                ];
-
-                $data = $this->createAdditionalDatas($data, 'update');
-                $model->password = '';
-
-                return $this->renderAjax('_form', $data);
-            }
-        }
-
         if ($this->request->isPost && $model->load($this->request->post())) {
             $model->password = $model->password == '' ? $tempPassword :
                 Yii::$app->getSecurity()->generatePasswordHash($model->password);
@@ -88,6 +66,16 @@ class UsersController extends FController
                 return $this->redirect(['index']);
             }
         }
+
+        $data = [
+            'model' => $model,
+            'title' => $this->title
+        ];
+
+        $data = $this->createAdditionalDatas($data, 'update');
+        $model->password = '';
+
+        return $this->render('form', $data);
     }
 
     /**

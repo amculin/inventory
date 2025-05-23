@@ -60,6 +60,7 @@ class User extends \yii\db\ActiveRecord
             [['unit_id', 'role_id', 'is_blocked', 'is_deleted', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['username'], 'string', 'max' => 20],
+            [['email'], 'email'],
             [['email', 'name', 'auth_key'], 'string', 'max' => 128],
             [['password'], 'string', 'max' => 64],
             [['username'], 'unique'],

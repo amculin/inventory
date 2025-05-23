@@ -33,8 +33,7 @@ $fullTitle = Yii::t('app', $title . '.management')
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <a href="<?= Url::to('/users/create', true); ?>" class="btn btn-primary d-none d-sm-inline-block modal-trigger"
-                        data-bs-toggle="modal" data-bs-target="#modal-form">
+                    <a href="<?= Url::to('/users/create', true); ?>" class="btn btn-primary d-none d-sm-inline-block">
                         <i class="bi bi-plus"></i>
                         <?= Yii::t('app.form', Yii::t('app.form', 'create.' . $title)); ?>
                     </a>
@@ -143,7 +142,7 @@ $fullTitle = Yii::t('app', $title . '.management')
 </div>
 
 <?php
-FormModalAsset::register($this);
+//FormModalAsset::register($this);
 
 $lockTitle = Yii::t('app', 'lock');
 $unlockTitle = Yii::t('app', 'unlock');

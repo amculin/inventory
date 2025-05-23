@@ -145,23 +145,6 @@ class FController extends Controller
     {
         $model = new ($this->modelClass)();
 
-        if (Yii::$app->request->isAjax) {
-            if ($model->load(Yii::$app->request->post())) {
-                Yii::$app->response->format = Response::FORMAT_JSON;
-    
-                return ActiveForm::validate($model);
-            } else {
-                $data = [
-                    'model' => $model,
-                    'title' => $this->title
-                ];
-
-                $data = $this->createAdditionalDatas($data, 'create');
-
-                return $this->renderAjax('_form', $data);
-            }
-        }
-
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 $flashMessage = Yii::t('app.form', $this->title);
@@ -175,6 +158,15 @@ class FController extends Controller
         } else {
             $model->loadDefaultValues();
         }
+
+        $data = [
+            'model' => $model,
+            'title' => $this->title
+        ];
+
+        $data = $this->createAdditionalDatas($data, 'create');
+
+        return $this->render('form', $data);
     }
 
     /**
@@ -190,23 +182,6 @@ class FController extends Controller
     {
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax) {
-            if ($model->load(Yii::$app->request->post())) {
-                Yii::$app->response->format = Response::FORMAT_JSON;
-    
-                return ActiveForm::validate($model);
-            } else {
-                $data = [
-                    'model' => $model,
-                    'title' => $this->title
-                ];
-
-                $data = $this->createAdditionalDatas($data, 'update');
-
-                return $this->renderAjax('_form', $data);
-            }
-        }
-
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             $flashMessage = Yii::t('app.form', $this->title);
             $flashMessage .= ' <strong>' . $model->name . '</strong> ';
@@ -216,6 +191,15 @@ class FController extends Controller
 
             return $this->redirect(['index']);
         }
+
+        $data = [
+            'model' => $model,
+            'title' => $this->title
+        ];
+
+        $data = $this->createAdditionalDatas($data, 'update');
+
+        return $this->render('form', $data);
     }
 
     /**

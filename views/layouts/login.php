@@ -16,7 +16,7 @@ $this->beginPage();
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title><?= Html::encode(Yii::t('app', Yii::$app->params['appName'])); ?></title>
-        <link rel="shortcut icon" href="image/fitfat.id.png">
+        <link rel="shortcut icon" href="/image/fitfat.id.png">
         <!-- CSS files -->
         <?php $this->head() ?>
     </head>
@@ -25,13 +25,13 @@ $this->beginPage();
         <div class="login-cover bg-dark col d-flex align-items-end order-md-last swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="image/inventory-1-1176210-pxhere.com.jpg" alt="Inventory" class="cover" />
+                    <img src="/image/inventory-1-1176210-pxhere.com.jpg" alt="Inventory" class="cover" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="image/inventory-2-940710-pxhere.com.jpg" alt="Helmet Store" class="cover" />
+                    <img src="/image/inventory-2-940710-pxhere.com.jpg" alt="Helmet Store" class="cover" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="image/inventory-3-1454387-pxhere.com.jpg" alt="Meeting" class="cover" />
+                    <img src="/image/inventory-3-1454387-pxhere.com.jpg" alt="Meeting" class="cover" />
                 </div>
             </div>
             <div class="swiper-pagination"></div>
