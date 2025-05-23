@@ -39,4 +39,8 @@ return [
     //Category Management
     'create.product.categories' => 'Tambah Kategori',
     'update.product.categories' => 'Edit Kategori',
+
+    //Brand Management
+    'create.brands' => 'Tambah Merk',
+    'update.brands' => 'Update Merk',
 ];
