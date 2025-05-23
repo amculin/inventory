@@ -1,8 +1,10 @@
 <?php
 
 use app\customs\FActionColumn;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 
 $fullTitle = Yii::t('app', $title);
 ?>
@@ -32,6 +34,24 @@ $fullTitle = Yii::t('app', $title);
                         <i class="bi bi-plus"></i>
                         <?= Yii::t('app.form', Yii::t('app.form', 'create.' . $title)); ?>
                     </a>
+
+                    <div class="ms-auto d-flex gap-2">
+                        <?php
+                        $form = ActiveForm::begin([
+                            'action' => ['index'],
+                            'method' => 'get',
+                            'options' => ['style' => 'display: contents;']
+                        ]);
+                        ?>
+                        <div class="input-group">
+                            <?= $form->field($searchModel, 'name', ['options' => ['tag' => false]])->textInput([
+                                'placeholder' => Yii::t('app.form', 'search.data..'),
+                                'tag' => false
+                            ])->label(false); ?>
+                            <?= Html::submitButton('<i class="bi bi-search"></i>', ['class' => 'btn']) ?>
+                        </div>
+                        <?php ActiveForm::end(); ?>
+                    </div>
                 </div>
                    
                 <?php if (Yii::$app->session->hasFlash('success')) { ?>

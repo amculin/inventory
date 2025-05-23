@@ -4,11 +4,32 @@ namespace app\models\master;
 
 use Yii;
 use app\enums\DeletedStatus;
+use yii\base\Model;
 use yii\data\SqlDataProvider;
 use yii\helpers\ArrayHelper;
 
 class CategorySearch extends Category
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['code', 'name'], 'string'],
+            [['code', 'name'], 'safe'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function scenarios()
+    {
+        // bypass scenarios() implementation in the parent class
+        return Model::scenarios();
+    }
+
     public static function getList()
     {
         $sql = "SELECT id, name FROM master_categories WHERE is_deleted = :is_deleted";
@@ -29,8 +50,20 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
+        $filters = [];
         $bound = [':status' => DeletedStatus::IS_NOT_DELETED->value];
         $where = ' WHERE c.is_deleted = :status';
+
+        $this->load($params);
+
+        if ($this->name) {
+            $filters[] = '(c.code LIKE :name OR c.name LIKE :name)';
+            $bound[':name'] = "%{$this->name}%";
+        }
+
+        if (! empty($filters)) {
+            $where .= ' AND ' . implode(' AND ', $filters);
+        }
 
 
         $count = Yii::$app->db->createCommand('SELECT COUNT(*) FROM master_categories c' . $where, $bound)->queryScalar();
