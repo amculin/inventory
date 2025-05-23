@@ -50,8 +50,20 @@ class BrandSearch extends Brand
      */
     public function search($params)
     {
+        $filters = [];
         $bound = [':status' => DeletedStatus::IS_NOT_DELETED->value];
         $where = ' WHERE b.is_deleted = :status';
+
+        $this->load($params);
+
+        if ($this->name) {
+            $filters[] = '(b.code LIKE :name OR b.name LIKE :name)';
+            $bound[':name'] = "%{$this->name}%";
+        }
+
+        if (! empty($filters)) {
+            $where .= ' AND ' . implode(' AND ', $filters);
+        }
 
         $count = Yii::$app->db->createCommand('SELECT COUNT(*) FROM master_brands b' . $where, $bound)->queryScalar();
         $sql = "SELECT b.* FROM master_brands b
