@@ -16,6 +16,7 @@ $formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
                     <div class="page-pretitle mb-2">
                         <ol class="breadcrumb" aria-label="breadcrumbs">
                             <li class="breadcrumb-item"><a href="<?= Url::to('/dashboard/index', true); ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#"><?= Yii::t('app', 'references'); ?></a></li>
                             <li class="breadcrumb-item"><a href="<?= Url::to('/references/categories/index', true); ?>"><?php echo $fullTitle; ?></a></li>
                             <li class="breadcrumb-item active">
                                 <a href="#"><?php echo Yii::t('app.form', Yii::t('app.form', $formTitle)); ?></a>

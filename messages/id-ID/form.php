@@ -37,5 +37,6 @@ return [
     'address' => 'Alamat',
 
     //Category Management
-    'create.product.categories' => 'Tambah Kategori'
+    'create.product.categories' => 'Tambah Kategori',
+    'update.product.categories' => 'Edit Kategori',
 ];

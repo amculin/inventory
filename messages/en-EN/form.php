@@ -37,5 +37,6 @@ return [
     'address' => 'Address',
 
     //Category Management
-    'create.product.categories' => 'Create Category'
+    'create.product.categories' => 'Create Category',
+    'update.product.categories' => 'Update Category',
 ];
