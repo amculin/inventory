@@ -34,5 +34,8 @@ return [
     'create.unit' => 'Create Unit',
     'update.unit' => 'Update Unit',
     'code' => 'Code',
-    'address' => 'Address'
+    'address' => 'Address',
+
+    //Category Management
+    'create.product.categories' => 'Create Category'
 ];

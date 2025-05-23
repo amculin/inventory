@@ -34,5 +34,8 @@ return [
     'create.unit' => 'Tambah Cabang',
     'update.unit' => 'Edit Cabang',
     'code' => 'Kode',
-    'address' => 'Alamat'
+    'address' => 'Alamat',
+
+    //Category Management
+    'create.product.categories' => 'Tambah Kategori'
 ];
