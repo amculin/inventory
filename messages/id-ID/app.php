@@ -18,6 +18,8 @@ return [
     'products' => 'Produk',
     'user.management' => 'Manajemen Pengguna',
 
+    'dashboard.hello' => 'Halo, selamat datang di aplikasi manajemen inventori!',
+
     'action' => 'Aksi',
     'edit' => 'Edit',
     'delete' => 'Hapus',

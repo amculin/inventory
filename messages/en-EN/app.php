@@ -18,6 +18,8 @@ return [
     'products' => 'Products',
     'user.management' => 'User Management',
 
+    'dashboard.hello' => 'Hello, welcome to the Inventory Management System!',
+
     'action' => 'Action',
     'edit' => 'Edit',
     'delete' => 'Delete',
