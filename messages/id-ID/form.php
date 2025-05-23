@@ -19,6 +19,7 @@ return [
 
     //User Management
     'create.user' => 'Tambah Pengguna',
+    'update.user' => 'Edit Pengguna',
     'all.role' => 'Semua Role',
     'name' => 'Nama',
     'role' => 'Role',
@@ -31,6 +32,7 @@ return [
 
     //Unit Management
     'create.unit' => 'Tambah Cabang',
+    'update.unit' => 'Edit Cabang',
     'code' => 'Kode',
     'address' => 'Alamat'
 ];

@@ -5,8 +5,9 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 $fullTitle = Yii::t('app', $title . '.branches');
+$formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
 ?>
-<div class="page-wrapper" data-submenu-active="<?= Yii::t('app', 'references'); ?>">
+<div class="page-wrapper" data-submenu-active="<?= $fullTitle; ?>" data-menu-active="<?= Yii::t('app', 'references'); ?>">
     <div class="container-xl">
         <!-- Page title -->
         <div class="page-header d-print-none">
@@ -17,11 +18,11 @@ $fullTitle = Yii::t('app', $title . '.branches');
                             <li class="breadcrumb-item"><a href="<?= Url::to('/dashboard/index', true); ?>">Home</a></li>
                             <li class="breadcrumb-item"><a href="<?= Url::to('/references/units/index', true); ?>"><?php echo $fullTitle; ?></a></li>
                             <li class="breadcrumb-item active">
-                                <a href="#"><?php echo Yii::t('app.form', Yii::t('app.form', 'create.' . $title)); ?></a>
+                                <a href="#"><?php echo Yii::t('app.form', Yii::t('app.form', $formTitle)); ?></a>
                             </li>
                         </ol>
                     </div>
-                    <h2 class="page-title"><?= Yii::t('app.form', Yii::t('app.form', 'create.' . $title)); ?></h2>
+                    <h2 class="page-title"><?= Yii::t('app.form', Yii::t('app.form', $formTitle)); ?></h2>
                 </div>
             </div>
         </div>

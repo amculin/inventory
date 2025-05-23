@@ -19,6 +19,7 @@ return [
 
     //User Management
     'create.user' => 'Create User',
+    'update.user' => 'Update User',
     'all.role' => 'All Roles',
     'name' => 'Name',
     'role' => 'Role',
@@ -31,6 +32,7 @@ return [
 
     //Unit Management
     'create.unit' => 'Create Unit',
+    'update.unit' => 'Update Unit',
     'code' => 'Code',
     'address' => 'Address'
 ];
