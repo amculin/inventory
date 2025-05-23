@@ -1,18 +1,12 @@
 <?php
 
-use app\assets\FormModalAsset;
 use app\customs\FActionColumn;
-use app\customs\FDeleteAlert;
-use app\modules\references\models\Kategori;
-use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\widgets\ActiveForm;
 
 $fullTitle = Yii::t('app', $title . '.branches')
 ?>
-<div class="page-wrapper" data-menu-active="<?= $fullTitle; ?>" data-submenu-active="<?= Yii::t('app', 'references'); ?>">
+<div class="page-wrapper" data-menu-active="<?= Yii::t('app', 'references'); ?>" data-submenu-active="<?= $fullTitle; ?>">
     <div class="container-xl">
         <!-- Page title -->
         <div class="page-header d-print-none">
@@ -39,6 +33,15 @@ $fullTitle = Yii::t('app', $title . '.branches')
                         <?= Yii::t('app.form', Yii::t('app.form', 'create.' . $title)); ?>
                     </a>
                 </div>
+                   
+                <?php if (Yii::$app->session->hasFlash('success')) { ?>
+                    <div class="m-3 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><?= Yii::t('app.form', 'success'); ?>!</strong> <?= Yii::$app->session->getFlash('success'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="<?= Yii::t('app.form', 'close'); ?>"></button>
+                    </div>
+                <?php } ?>
+
                 <div class="table-responsive card-body p-0">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
