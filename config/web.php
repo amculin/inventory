@@ -70,7 +70,12 @@ $config = [
             ],
         ],
     ],
-    'params' => $params
+    'params' => $params,
+    'modules' => [
+        'references' => [
+            'class' => 'app\modules\references\Module',
+        ],
+    ]
 ];
 
 if (YII_ENV_DEV) {

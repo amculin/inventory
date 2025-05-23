@@ -14,11 +14,14 @@ return [
     '.created' => ' berhasil dibuat.',
     '.updated' => ' berhasil diperbaharui.',
     '.deleted' => ' berhasil dihapus.',
+    'save' => 'Simpan',
+    'back' => 'Kembali',
 
     //User Management
     'create.user' => 'Tambah Pengguna',
+    'update.user' => 'Edit Pengguna',
     'all.role' => 'Semua Role',
-    'name' => 'Nama Lengkap',
+    'name' => 'Nama',
     'role' => 'Role',
     'unit' => 'Unit',
     'email' => 'Email',
@@ -26,4 +29,10 @@ return [
     'password' => 'Kata Sandi',
     'user' => 'Pengguna',
     'sure?' => 'Apakah Anda Yakin?',
+
+    //Unit Management
+    'create.unit' => 'Tambah Cabang',
+    'update.unit' => 'Edit Cabang',
+    'code' => 'Kode',
+    'address' => 'Alamat'
 ];

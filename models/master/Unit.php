@@ -3,6 +3,7 @@
 namespace app\models\master;
 
 use Yii;
+use app\models\User;
 
 /**
  * This is the model class for table "master_units".
@@ -53,15 +54,15 @@ class Unit extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'code' => Yii::t('app', 'Code'),
-            'name' => Yii::t('app', 'Name'),
-            'address' => Yii::t('app', 'Address'),
-            'is_deleted' => Yii::t('app', 'Is Deleted'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
+            'id' => Yii::t('app.form', 'ID'),
+            'code' => Yii::t('app.form', 'code'),
+            'name' => Yii::t('app.form', 'name'),
+            'address' => Yii::t('app.form', 'address'),
+            'is_deleted' => Yii::t('app.form', 'Is Deleted'),
+            'created_at' => Yii::t('app.form', 'Created At'),
+            'updated_at' => Yii::t('app.form', 'Updated At'),
+            'created_by' => Yii::t('app.form', 'Created By'),
+            'updated_by' => Yii::t('app.form', 'Updated By'),
         ];
     }
 
@@ -83,5 +84,25 @@ class Unit extends \yii\db\ActiveRecord
     public function getUsers()
     {
         return $this->hasMany(User::class, ['unit_id' => 'id']);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeValidate()
+    {
+        if (!parent::beforeValidate()) {
+            return false;
+        }
+
+        if ($this->isNewRecord) {
+            $this->created_at = date('Y-m-d H:i:s');
+            $this->created_by = Yii::$app->user->identity->id;
+        } else {
+            $this->updated_at = date('Y-m-d H:i:s');
+            $this->updated_by = Yii::$app->user->identity->id;
+        }
+
+        return true;
     }
 }

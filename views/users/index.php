@@ -1,6 +1,5 @@
 <?php
 
-use app\assets\FormModalAsset;
 use app\customs\FActionColumn;
 use app\customs\FDeleteAlert;
 use yii\grid\GridView;
@@ -142,7 +141,6 @@ $fullTitle = Yii::t('app', $title . '.management')
 </div>
 
 <?php
-//FormModalAsset::register($this);
 
 $lockTitle = Yii::t('app', 'lock');
 $unlockTitle = Yii::t('app', 'unlock');
