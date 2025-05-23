@@ -3,6 +3,7 @@
 namespace app\models\master;
 
 use Yii;
+use app\models\User;
 
 /**
  * This is the model class for table "master_units".

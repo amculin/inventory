@@ -26,4 +26,7 @@ return [
     'password' => 'Kata Sandi',
     'user' => 'Pengguna',
     'sure?' => 'Apakah Anda Yakin?',
+
+    //Unit Management
+    'create.unit' => 'Tambah Cabang'
 ];

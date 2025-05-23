@@ -35,4 +35,7 @@ return [
     'password' => 'Password',
     'user' => 'User',
     'sure?' => 'Are You Sure?',
+
+    //Unit Management
+    'create.unit' => 'Create Unit'
 ];
