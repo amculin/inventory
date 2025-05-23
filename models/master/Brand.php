@@ -82,4 +82,24 @@ class Brand extends \yii\db\ActiveRecord
     {
         return $this->hasMany(MasterProduct::class, ['brand_id' => 'id']);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeValidate()
+    {
+        if (!parent::beforeValidate()) {
+            return false;
+        }
+
+        if ($this->isNewRecord) {
+            $this->created_at = date('Y-m-d H:i:s');
+            $this->created_by = Yii::$app->user->identity->id;
+        } else {
+            $this->updated_at = date('Y-m-d H:i:s');
+            $this->updated_by = Yii::$app->user->identity->id;
+        }
+
+        return true;
+    }
 }
