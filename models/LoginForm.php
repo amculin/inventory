@@ -72,7 +72,7 @@ class LoginForm extends Model
             $session = Yii::$app->session;
             $session['user_data'] = $data;
 
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 : 0);
+            return Yii::$app->user->login($this->getUser(), 3600);
         }
 
         return false;
