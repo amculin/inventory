@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$fullTitle = Yii::t('app', $title . '.branches');
+$fullTitle = Yii::t('app', $title);
 $formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
 ?>
 <div class="page-wrapper" data-submenu-active="<?= $fullTitle; ?>" data-menu-active="<?= Yii::t('app', 'references'); ?>">
@@ -17,7 +17,7 @@ $formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
                         <ol class="breadcrumb" aria-label="breadcrumbs">
                             <li class="breadcrumb-item"><a href="<?= Url::to('/dashboard/index', true); ?>">Home</a></li>
                             <li class="breadcrumb-item"><a href="#"><?= Yii::t('app', 'references'); ?></a></li>
-                            <li class="breadcrumb-item"><a href="<?= Url::to('/references/units/index', true); ?>"><?php echo $fullTitle; ?></a></li>
+                            <li class="breadcrumb-item"><a href="<?= Url::to('/references/categories/index', true); ?>"><?php echo $fullTitle; ?></a></li>
                             <li class="breadcrumb-item active">
                                 <a href="#"><?php echo Yii::t('app.form', Yii::t('app.form', $formTitle)); ?></a>
                             </li>
@@ -31,7 +31,7 @@ $formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
     <div class="page-body">
         <div class="container-xl">
             <?php $form = ActiveForm::begin([
-                'id' => 'references-unit-form',
+                'id' => 'references-category-form',
                 'enableAjaxValidation' => false
             ]); ?>
                 <div class="row g-3">
@@ -44,16 +44,13 @@ $formTitle = ($model->isNewRecord ? 'create' : 'update') . '.' . $title;
                                 <?= $form->field($model, 'name', [
                                         'options' => ['class' => 'mb-2']
                                     ])->textInput(['maxlength' => true])->label(null, ['class' => 'form-label']); ?>
-                                <?= $form->field($model, 'address', [
-                                        'options' => ['class' => 'mb-2']
-                                    ])->textArea(['maxlength' => true])->label(null, ['class' => 'form-label']); ?>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-3 d-flex gap-2 justify-content-between">
-                    <a href="<?= Url::to('/references/units/index', true); ?>" class="btn btn px-4">
+                    <a href="<?= Url::to('/references/categories/index', true); ?>" class="btn btn px-4">
                         <i class="bi bi-arrow-left me-2"></i><?= Yii::t('app.form', 'back'); ?>
                     </a>
                     <button class="btn btn-primary px-4" type="submit"><?= Yii::t('app.form', 'save'); ?></button>
