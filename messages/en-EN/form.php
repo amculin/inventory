@@ -42,4 +42,5 @@ return [
 
     //Brand Management
     'create.brands' => 'Create Brand',
+    'update.brands' => 'Update Brand',
 ];

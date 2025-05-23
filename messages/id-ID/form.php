@@ -42,4 +42,5 @@ return [
 
     //Brand Management
     'create.brands' => 'Tambah Merk',
+    'update.brands' => 'Update Merk',
 ];
