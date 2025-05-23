@@ -15,7 +15,7 @@ class DashboardController extends FController
     {
         parent::init();
 
-        $this->allowedRoles = [Role::ADMIN->value];
+        $this->allowedRoles = [Role::ADMIN->value, Role::WAREHOUSE->value, Role::CASHIER->value];
         $this->title = 'dashboard';
         $this->layout = 'main';
     }

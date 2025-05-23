@@ -4,7 +4,7 @@
 * Translation map for en-EN
 */
 return [
-    'app.name' => 'Inventory Management Information System',
+    'app.name' => 'Inventory Management System',
 
     // Menus
     'dashboard' => 'Dashboard',

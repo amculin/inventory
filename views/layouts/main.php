@@ -31,7 +31,7 @@ $unit = $userData['code'] . ' (' . $userData['unit_name'] . ')';
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode(Yii::t('app', Yii::$app->params['appName'])); ?></title>
-        <link rel="shortcut icon" href="image/fitfat.id.png">
+        <link rel="shortcut icon" href="/image/fitfat.id.png">
         <!-- CSS files -->
         <?php $this->head() ?>
     </head>

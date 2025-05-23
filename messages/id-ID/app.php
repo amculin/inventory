@@ -4,7 +4,7 @@
 * Translation map for id-ID
 */
 return [
-    'app.name' => 'Sistem Informasi Manajemen Inventori',
+    'app.name' => 'Sistem Manajemen Inventori',
 
     // Menu
     'dashboard' => 'Dasbor',

@@ -13,7 +13,7 @@ use yii\web\Response;
 
 class SiteController extends Controller
 {
-    const AUTHORIZED_LINK = 'users/index';
+    const AUTHORIZED_LINK = 'dashboard/index';
 
     public $layout = 'login';
 
